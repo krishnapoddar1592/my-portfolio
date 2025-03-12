@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Import fonts and icons
+import '@fortawesome/fontawesome-free/css/all.min.css';
+// Note: We're using CDN links for Cabinet Grotesk and Inter fonts in index.html
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

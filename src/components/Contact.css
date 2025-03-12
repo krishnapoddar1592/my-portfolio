@@ -1,0 +1,26 @@
+/* Contact.css */
+.status-message {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-left: 4px solid #cccccc;
+}
+
+.status-message.success {
+  background-color: #edf7ed;
+  border-left-color: #4caf50;
+  color: #1e4620;
+}
+
+.status-message.error {
+  background-color: #fdeded;
+  border-left-color: #f44336;
+  color: #5f2120;
+}
+
+.btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
