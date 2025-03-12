@@ -118,7 +118,7 @@ const About = () => {
                   whileHover="hover"
                 >
                   <motion.img 
-                    src="./images/profilephoto.jpg" 
+                    src="./images/client1.jpeg" 
                     alt="Krishna Poddar" 
                     className="profile-image"
                     variants={profileImageVariants}

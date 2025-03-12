@@ -635,6 +635,15 @@ footer {
       grid-template-columns: 1fr;
       gap: 2rem;
   }
+  .nav-buttons {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+  }
+
+  .theme-toggle {
+      margin-right: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -684,6 +693,15 @@ footer {
   .footer-nav {
       flex-wrap: wrap;
       justify-content: center;
+  }
+  .nav-buttons {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+  }
+
+  .theme-toggle {
+      margin-right: 1rem;
   }
 }
 
@@ -805,7 +823,7 @@ html {
 .profile-image-container {
   position: relative;
   width: 100%;
-  max-width: 285px;
+  max-width: 340px;
   margin: 0 auto;
   background-color: var(--background);
   border-radius: 16px;
