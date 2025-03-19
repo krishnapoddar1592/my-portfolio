@@ -1,11 +1,27 @@
 // components/Services.js
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 
 const Services = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const [viewportHeight, setViewportHeight] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Initialize and update viewport dimensions
+  useEffect(() => {
+    const handleResize = () => {
+      setViewportHeight(window.innerHeight);
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Set initial values
+    handleResize();
+    
+    // Update on resize
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const sectionVariants = {
     hidden: { opacity: 0 },
@@ -56,6 +72,11 @@ const Services = () => {
     }
   };
 
+  // Calculate responsive spacing
+  const containerHeight = isMobile ? '400vh' : '290vh';
+  const sectionOffset = isMobile ? '30vh' : '30vh';
+  const topPosition = isMobile ? '200px' : '270px';
+
   return (
     <section id="services" className="services">
       <div className="services-wrapper">
@@ -65,20 +86,42 @@ const Services = () => {
             variants={sectionVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
+            style={{ 
+              position: 'relative',
+              height: containerHeight // Responsive container height
+            }}
           >
-            <motion.div className="section-subtitle" variants={itemVariants}>
-              My expertise
+            {/* Header - Stays at the top */}
+            <motion.div 
+              style={{ 
+                position: 'sticky', 
+                top: 0, 
+                zIndex: 10,
+                background: 'var(--background)',
+                paddingTop: isMobile ? '3rem' : '5rem',
+              }}
+            >
+              <motion.div className="section-subtitle" variants={itemVariants}>
+                My expertise
+              </motion.div>
+              <motion.h1 className="section-title" variants={itemVariants}>
+                WHAT I DO
+              </motion.h1>
             </motion.div>
-            <motion.h1 className="section-title" variants={itemVariants}>
-              WHAT I DO
-            </motion.h1>
-            <motion.div className="hero-divider" variants={lineVariants} />
             
+            {/* App Development - Shows first, gets covered by others */}
             <motion.div 
               className="service-category fade-in"
               variants={categoryVariants}
               whileHover="hover"
+              style={{ 
+                position: 'sticky', 
+                top: topPosition,
+                zIndex: 1, 
+                background: 'var(--background)',
+              }}
             >
+              <motion.div className="hero-divider" variants={lineVariants} />
               <div className="service-list">
                 <div className="left">
                   <h3 className="service-title">APP DEVELOPMENT</h3>
@@ -98,15 +141,23 @@ const Services = () => {
                   </div>
                 </div>
               </div>
+              <motion.div className="hero-divider" variants={lineVariants} style={{ marginTop: '1rem' }} />
             </motion.div>
             
-            <motion.div className="hero-divider" variants={lineVariants} />
-            
+            {/* UI/UX Design - Shows second, covers App Development */}
             <motion.div 
               className="service-category fade-in"
               variants={categoryVariants}
               whileHover="hover"
+              style={{ 
+                position: 'sticky', 
+                top: topPosition,
+                zIndex: 2, 
+                background: 'var(--background)',
+                marginTop: isMobile ? '50vh' : sectionOffset // More space on mobile
+              }}
             >
+              <motion.div className="hero-divider" variants={lineVariants} />
               <div className="service-list">
                 <div className="left">
                   <h3 className="service-title">UI / UX DESIGN</h3>
@@ -126,15 +177,23 @@ const Services = () => {
                   </div>
                 </div>
               </div>
+              <motion.div className="hero-divider" variants={lineVariants} style={{ marginTop: '1rem' }} />
             </motion.div>
             
-            <motion.div className="hero-divider" variants={lineVariants} />
-            
+            {/* Backend Development - Shows last, covers everything else */}
             <motion.div 
               className="service-category fade-in"
               variants={categoryVariants}
               whileHover="hover"
+              style={{ 
+                position: 'sticky', 
+                top: topPosition,
+                zIndex: 3, 
+                background: 'var(--background)',
+                marginTop: isMobile ? '50vh' : sectionOffset // More space on mobile
+              }}
             >
+              <motion.div className="hero-divider" variants={lineVariants} />
               <div className="service-list">
                 <div className="left">
                   <h3 className="service-title">BACKEND DEVELOPMENT</h3>
@@ -154,9 +213,8 @@ const Services = () => {
                   </div>
                 </div>
               </div>
+              <motion.div className="hero-divider" variants={lineVariants} style={{ marginTop: '1rem' }} />
             </motion.div>
-            
-            <motion.div className="hero-divider" variants={lineVariants} />
           </motion.div>
         </div>
       </div>
