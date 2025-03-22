@@ -4,6 +4,7 @@
 :root {
   /* Dark Mode Colors (Default) */
   --background: #0f0e17;
+  --card:#151421;
   --headline: #fffffe;
   --paragraph: #a7a9be;
   --button: #ff8906;
@@ -210,7 +211,7 @@ nav {
 }
 
 .hero-content {
-  margin-top: 100px;
+  margin-top: 70px;
   width: 100%;
 }
 
@@ -253,7 +254,7 @@ nav {
   display: flex;
   justify-content: space-between;
   font-size: 1.2rem;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
 }
 
 .hero-divider {
@@ -280,12 +281,17 @@ nav {
 /* About Section */
 .about {
   position: relative;
-  padding: 5rem 0;
+  
+  background-color:var(--card-bg) ;
 }
 
 .about-wrapper {
   position: relative;
   z-index: 10;
+  padding: 5rem 0;
+  border-radius: 1rem;
+
+  background-color: var(--card-bg);
 }
 
 .section-title {
@@ -647,6 +653,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+  .hero{
+    padding-bottom: 160px ;
+  }
   .hero h1, .hero-content h1, .hero-about-content h1 {
       font-size: 3rem;
   }

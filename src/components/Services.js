@@ -75,7 +75,7 @@ const Services = () => {
   // Calculate responsive spacing
   const containerHeight = isMobile ? '400vh' : '290vh';
   const sectionOffset = isMobile ? '30vh' : '30vh';
-  const topPosition = isMobile ? '200px' : '270px';
+  const topPosition = isMobile ? '170px' : '270px';
 
   return (
     <section id="services" className="services">
@@ -109,40 +109,7 @@ const Services = () => {
               </motion.h1>
             </motion.div>
             
-            {/* App Development - Shows first, gets covered by others */}
-            <motion.div 
-              className="service-category fade-in"
-              variants={categoryVariants}
-              whileHover="hover"
-              style={{ 
-                position: 'sticky', 
-                top: topPosition,
-                zIndex: 1, 
-                background: 'var(--background)',
-              }}
-            >
-              <motion.div className="hero-divider" variants={lineVariants} />
-              <div className="service-list">
-                <div className="left">
-                  <h3 className="service-title">APP DEVELOPMENT</h3>
-                </div>
-                <div className="right">
-                  <div className="service-list">
-                    <div className="left">
-                      <motion.p variants={itemVariants}>Android Development</motion.p>
-                      <motion.p variants={itemVariants}>iOS Development</motion.p>
-                      <motion.p variants={itemVariants}>Multiplatform Development</motion.p>
-                    </div>
-                    <div className="right">
-                      <motion.p variants={itemVariants}>Modern UIs</motion.p>
-                      <motion.p variants={itemVariants}>Integrated Backend</motion.p>
-                      <motion.p variants={itemVariants}>App Maintenance</motion.p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <motion.div className="hero-divider" variants={lineVariants} style={{ marginTop: '1rem' }} />
-            </motion.div>
+            
             
             {/* UI/UX Design - Shows second, covers App Development */}
             <motion.div 
@@ -152,9 +119,9 @@ const Services = () => {
               style={{ 
                 position: 'sticky', 
                 top: topPosition,
-                zIndex: 2, 
+                zIndex: 1, 
                 background: 'var(--background)',
-                marginTop: isMobile ? '50vh' : sectionOffset // More space on mobile
+                // More space on mobile
               }}
             >
               <motion.div className="hero-divider" variants={lineVariants} />
@@ -173,6 +140,43 @@ const Services = () => {
                       <motion.p variants={itemVariants}>Design Systems</motion.p>
                       <motion.p variants={itemVariants}>Wireframing</motion.p>
                       <motion.p variants={itemVariants}>Prototyping</motion.p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <motion.div className="hero-divider" variants={lineVariants} style={{ marginTop: '1rem' }} />
+            </motion.div>
+
+
+            {/* App Development - Shows first, gets covered by others */}
+            <motion.div 
+              className="service-category fade-in"
+              variants={categoryVariants}
+              whileHover="hover"
+              style={{ 
+                position: 'sticky', 
+                top: topPosition,
+                zIndex: 2, 
+                background: 'var(--background)',
+                marginTop: isMobile ? '50vh' : sectionOffset 
+              }}
+            >
+              <motion.div className="hero-divider" variants={lineVariants} />
+              <div className="service-list">
+                <div className="left">
+                  <h3 className="service-title">APP DEVELOPMENT</h3>
+                </div>
+                <div className="right">
+                  <div className="service-list">
+                    <div className="left">
+                      <motion.p variants={itemVariants}>Android Development</motion.p>
+                      <motion.p variants={itemVariants}>iOS Development</motion.p>
+                      <motion.p variants={itemVariants}>Multiplatform Development</motion.p>
+                    </div>
+                    <div className="right">
+                      <motion.p variants={itemVariants}>Modern UIs</motion.p>
+                      <motion.p variants={itemVariants}>Integrated Backend</motion.p>
+                      <motion.p variants={itemVariants}>App Maintenance</motion.p>
                     </div>
                   </div>
                 </div>

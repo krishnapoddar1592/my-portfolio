@@ -10,6 +10,7 @@ import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
 import CTA from '../components/CTA';
 import Contact from '../components/Contact';
+import HeroAboutTransition from '../components/HeroAboutTransition';
 
 const Home = () => {
   // Animation variants for page transition
@@ -38,8 +39,9 @@ const Home = () => {
       exit="exit"
       variants={pageVariants}
     >
-      <Hero />
-      <About />
+      {/* <Hero /> */}
+      {/* <About /> */}
+      <HeroAboutTransition/>
       <Projects />
       <Services />
       {/* <Testimonials /> */}
